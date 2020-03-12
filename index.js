@@ -27,7 +27,6 @@ $(document).ready(function () {
                 answer9: [],
                 answer10: []
             }
-
             event.preventDefault();
             $('.quiz-introduction').fadeOut(300);
             $('.hide-form').removeClass('hide-form').addClass('question-form');
