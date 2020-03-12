@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz-app</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+
+
+
+</head>
+<header>
+    <div class="header-text">
+        <h1>Do they really exist?!</h1>
+    </div>
+</header>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<body>
+    <div class="quiz-introduction">
+        <h2>Welcome to the space and alien quiz!</h2>
+        <p>This quiz has 10 questions with difficulty "easy".</p>
+        <p>Average score is 8 / 10.</p>
+        <br>
+        <button class="start-quiz-button">Start quiz!</button>
+    </div>
+    <div id="form1" class="hide-form">
+        <h3 class="question-header">Question : <span id="question-number"></span></h3>
+        <form action="index.html" method="GET">
+            <p id="question"></p><br>
+            <input type="checkbox" name="checkbox" id="checkbox-1">
+            <label for="answer-a" id="answer1"></label><br>
+            <input type="checkbox" name="checkbox" id="checkbox-1">
+            <label for="answer-b" id="answer2"></label><br>
+            <input type="checkbox" name="checkbox" id="checkbox-1">
+            <label for="answer-c" id="answer3"></label><br>
+            <input type="checkbox" name="checkbox" id="checkbox-1">
+            <label for="answer-d" id="answer4"></label><br><br>
+            <h4 class="remaining-question">Remaining questions : <span id="remaining-question-number"></span></h4>
+            <button type="submit" id="submit-answer">Submit</button>
+        </form>
+    </div>
+
+
+</body>
+
+</html>
