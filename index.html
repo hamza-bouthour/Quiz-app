@@ -32,20 +32,20 @@
         <br>
         <button class="start-quiz-button">Start quiz!</button>
     </div>
-    <div id="form1" class="hide-form">
-        <h3 class="question-header">Question : <span id="question-number"></span></h3>
-        <form action="index.html" method="GET">
-            <p id="question"></p><br>
-            <input type="checkbox" name="checkbox" id="checkbox-1">
+    <div id="form1" class="hide-form"> 
+        <form class="myForm">
+            <h3 class="question-header">Question : <span id="question-number"></span></h3>
+            <p id="question"></p>
+            <input type="checkbox" name="answer-a" id="checkbox-1">
             <label for="answer-a" id="answer1"></label><br>
-            <input type="checkbox" name="checkbox" id="checkbox-1">
+            <input type="checkbox" name="answer-b" id="checkbox-1">
             <label for="answer-b" id="answer2"></label><br>
-            <input type="checkbox" name="checkbox" id="checkbox-1">
+            <input type="checkbox" name="answer-c" id="checkbox-1">
             <label for="answer-c" id="answer3"></label><br>
-            <input type="checkbox" name="checkbox" id="checkbox-1">
+            <input type="checkbox" name="answer-d" id="checkbox-1">
             <label for="answer-d" id="answer4"></label><br><br>
             <h4 class="remaining-question">Remaining questions : <span id="remaining-question-number"></span></h4>
-            <button type="submit" id="submit-answer">Submit</button>
+            <button type="button" id="submit-answer">Submit</button>
         </form>
     </div>
 
