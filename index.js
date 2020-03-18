@@ -1,12 +1,11 @@
-
-const data = [
+const quiz = [
     {
         question: 'What colour does Mars appear in the night sky?',
         answers: ['Yellow', 'Green', 'Pink', 'Purple', 'Red'],
         correct: 4
     },
     {
-        question: 'What are Saturn\'\s rings mostly made of?',
+        question: 'What are Saturn\'s rings mostly made of?',
         answers: ['Sequins', 'Ice, dust and rock', 'Gases', 'Stone', 'None of these'],
         correct: 1
     },
@@ -22,7 +21,7 @@ const data = [
     },
     {
         question: 'Which of the statements below is correct?',
-        answers: ['Our galaxy doesn\'\t move in space at all.', ' Our galaxy moves through space.', 'Our galaxy only spins around in the same spot.', 'The Sun orbits the Earth.', 'The Earth orbits the Moon.'],
+        answers: ["Our galaxy doesn't move in space at all.", ' Our galaxy moves through space.', 'Our galaxy only spins around in the same spot.', 'The Sun orbits the Earth.', 'The Earth orbits the Moon.'],
         correct: 1
     },
     {
@@ -54,82 +53,81 @@ const data = [
 ]
 
 
-
-
-function renderWrongAnswer() {
-    alert('INCORRECT!')
-}
-function renderCorrectAnswer() {
-    alert('corect')
+function updateSummary() {
+    $('.count-correct-answers').text(countCorrectAnswers + '/10');
+    $('.count-remaining').text(quiz.length - currentQuestionIndex - 1);
 }
 
-
-
-
-
-
-
-
-
-var indexForm = 0;
-var countQuestions = 1;
-var countRemainingQuestions = (9);
-var countButton = document.getElementsByClassName("submit-answer");
-
-
-countButton.onclick = function () {
-    indexForm++;
-    countQuestions++;
-    countRemainingQuestions--;  
-   
-}
-
-
+let currentQuestionIndex = 0;
+let countCorrectAnswers = 0;
 
 function renderQa(qa) {
-    const questionComponents = qa.answers.map((answer, index) => {
-        return `<input type="radio"${index === qa.correct ? ' class="correct"' : ''} ${index !== qa.correct ? ' class="incorrect"' : ''} name="answer-a">
-        <label for="answer-a">${answer}</label><br>`
+    $('button.submit-answer').prop('disabled', true);
+    const answers = qa.answers.map((answer, index) => {
+        return `<label><input type="radio"${index === qa.correct ? ' class="correct"' : ''} name="answer-a">  ${answer}</label><br>`
     });
-    
-    questionComponents.unshift(`<p id="question">${qa.question}</p>`);
-    questionComponents.unshift(`<h3 class="question-header">Question : <span id="question-number">${countQuestions}</span></h3>`);
-    questionComponents.push(`<h4 class="remaining-question">Remaining questions : <span id="remaining-question-number">${countRemainingQuestions}</span></h4>`);
-    questionComponents.push(`<input type="submit" name="submit" class="submit-answer" value="Submit">`);
-    $('.myForm').html(questionComponents);
+    $('div.quiz form h3 span').text(currentQuestionIndex + 1);
+    $('div.quiz form p').text(qa.question);
+    $('div.quiz form div.answers').html(answers.join(''));
 
+    $('input[type=radio]').on('click', function () {
+        $('button.submit-answer').prop('disabled', false);
+    });
+    updateSummary();
 }
 
 
 $(document).ready(function () {
-    $('.start-quiz-button').on('click', function () {
-        event.preventDefault();
-        event.stopPropagation();
-        renderQa(data[indexForm]);
-        $('.quiz-introduction').hide();
-        $('.hide-form').removeClass('hide-form').addClass('question-form');
-       
+
+    $('button.start-quiz-button').click(function () {
+        $('div.quiz-introduction').addClass('hidden');
+        $('div.quiz').removeClass('hidden').addClass('quiz');
+        $('div.summary').removeClass('hidden');
+        renderQa(quiz[currentQuestionIndex]);
     });
 
 
     $("form").on('submit', function (e) {
-        event.preventDefault();
-        countQuestions++;
-        countRemainingQuestions--;
-        indexForm++;
-        
-        
-        
+        e.preventDefault();
+        e.stopPropagation();
+        if (currentQuestionIndex === quiz.length - 1) {
+            $('div.quiz').addClass('quiz-end-animation');
+            $('div form').addClass('hidden');
+            $('div.summary').addClass('hidden');
+            $('div.answer-window').fadeOut(2300);
+            $('div.quiz-end').removeClass('hidden');
+            $('.answer-text').addClass('hidden');
+            $('button.reset').removeClass('hidden');
+            $('div.quiz-end span.report-score').html(countCorrectAnswers + '/10');
+            return;
+        }
+
+        currentQuestionIndex++;
         if ($('input.correct').is(':checked')) {
-            renderCorrectAnswer();
+            countCorrectAnswers++;
+            $('div.answer-window').fadeIn();
+            $('div.answer-window').removeClass('hidden');
+            $('div p.answer-text').text("Correct answer!");
+        } else {
+            $('div.answer-window').fadeIn();
+            $('div.answer-window').removeClass('hidden');
+            $('div p.answer-text').text("Wrong answer! the answer is: " + quiz[currentQuestionIndex - 1].answers[quiz[currentQuestionIndex - 1].correct]);
         }
-        if ($('input.incorrect').is(':checked')) {            
-            renderWrongAnswer();          
-        }
-        renderQa(data[indexForm]);       
+        renderQa(quiz[currentQuestionIndex]);
+        $('div.answer-window').fadeOut(2300);
     });
 
-
+    $('button.reset').on('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        $('div.quiz-end').addClass('hidden');
+        $('div.quiz').removeClass('hidden').removeClass('quiz-end-animation');
+        $('div form').removeClass('hidden');
+        $('.answer-text').removeClass('hidden');
+        $('div.summary').removeClass('hidden');
+        currentQuestionIndex = 0;
+        countCorrectAnswers = 0;
+        renderQa(quiz[currentQuestionIndex]);    
+    });
 
 });
-
