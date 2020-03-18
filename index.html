@@ -9,47 +9,43 @@
     <link rel="stylesheet" href="main.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="index.js"></script>
-
-
-
 </head>
 <header>
     <div class="header-text">
-        <h1>Do they really exist?!</h1>
+        <h1>Test your space Knowledge!</h1>
     </div>
 </header>
-<br>
-<br>
-<br>
-<br>
-<br>
-
 <body>
+
     <div class="quiz-introduction">
-        <h2>Welcome to the space and alien quiz!</h2>
+        <h2>Welcome to the space quiz!</h2>
         <p>This quiz has 10 questions with difficulty "easy".</p>
         <p>Average score is 8 / 10.</p>
         <br>
         <button class="start-quiz-button">Start quiz!</button>
     </div>
-    <div id="form1" class="hide-form"> 
-        <form class="myForm">
-            <h3 class="question-header">Question : <span id="question-number"></span></h3>
-            <p id="question"></p>
-            <input type="checkbox" name="answer-a" id="checkbox-1">
-            <label for="answer-a" id="answer1"></label><br>
-            <input type="checkbox" name="answer-b" id="checkbox-1">
-            <label for="answer-b" id="answer2"></label><br>
-            <input type="checkbox" name="answer-c" id="checkbox-1">
-            <label for="answer-c" id="answer3"></label><br>
-            <input type="checkbox" name="answer-d" id="checkbox-1">
-            <label for="answer-d" id="answer4"></label><br><br>
-            <h4 class="remaining-question">Remaining questions : <span id="remaining-question-number"></span></h4>
-            <button type="button" id="submit-answer">Submit</button>
+
+    <div class="quiz hidden">
+        <form>
+            <h3>Question : <span></span></h3>
+            <p class="question-list"></p>
+            <div class="answers answers-list"></div>
+            <button class="submit-answer" type="submit">Continue</button>
         </form>
+        <div class="quiz-end hidden">
+            <p>Thank you for answering the questions! Your score is <nobr><span class="report-score"></span></nobr></p>
+            <button class="reset hidden">Restart</button>
+        </div>
+    </div>
+    <div class="answer-window hidden">
+        <p class="answer-text"></p>
+        <p class="display-correct-answer"></p>
+    </div>
+    <div class="summary hidden">
+        <p>Correct answers: <span class="count-correct-answers"></span></p>
+        <br><br><br>
+        <p>Remaining Questions: <span class="count-remaining"></span></p>
     </div>
 
-
 </body>
-
 </html>
