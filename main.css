@@ -1,11 +1,11 @@
+@media only screen and (min-width: 720px) and (max-width: 3000px) {
 * {
     box-sizing: border-box;
 }
 
 body {
     display: block;
-    background-color: crimson;
-    /* background-image: url(https://i.postimg.cc/nrw7fdrk/body7.jpg); */
+    background-image: url(https://i.postimg.cc/nrw7fdrk/body7.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     font-family:'Montserrat', sans-serif;
@@ -47,12 +47,12 @@ button:hover{
 }
 
 .quiz {
-    display: block;
+    display: flex;
     position: relative;
-    margin: auto;
     border-radius: 8px;
+    margin: auto;
     border: solid 2px gray;
-    padding: 18px;
+    padding: 20px;
     background-color:black;
     opacity: 0.8;
     color:white;
@@ -112,29 +112,30 @@ input[type='radio']:hover {
     padding: 10px;
     color:white;
     background-color: black;
-    opacity: 0.8;
+    opacity: 0.6;
     border-radius: 5px;
     right: 50px;
     top: 270px;
     position: absolute;
     margin-top: 50px;
-    height: 250px;
-    width: 250px;
+    height: 300px;
+    width: 350px;
     border: orange solid 3px;
 }
 
 .answer-window {
-    opacity: 0.9;
+    opacity: 0.6;
     font-size: 30px;
     height: 300px;
     width: 350px;
     padding: 40px;
     text-align: center;
     border-radius: 5px;
-    top: 200px;
+    left: 50px;
+    top: 270px;
     position: absolute;
-    margin-top: 50px;  
-    
+    margin-top: 50px;
+    max-width: 350px;
 }
 
 .hidden {
@@ -152,7 +153,7 @@ input[type='radio']:hover {
 
 .quiz-end-animation {
     text-align: center;
-    display: block;
+    display: flex;
     position: relative;
     border-radius: 8px;
     margin: auto;
@@ -180,24 +181,5 @@ button.reset {
     border: green solid 2px;
     border-radius: 08px;
     padding: 13px;
-}
-@media screen and (max-width: 1000px) {
- .media-screen-control {
-     display: none;
- }   
- .answer-window {
-     display: flex;
-     position: relative;
-     margin: auto;
-    background-color: black;
-    opacity: 0.9;
-    font-size: 30px;
-    height: 300px;
-    width: 350px;
-    padding: 40px;
-    text-align: center;
-    border-radius: 5px;
-     
-    
 }
 }
