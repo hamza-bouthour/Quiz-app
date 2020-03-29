@@ -67,11 +67,11 @@ function renderQa(qa) {
         return `<label><input type="radio"${index === qa.correct ? ' class="correct"' : ''} name="answer-a">  ${answer}</label><br>`
     });
     $('div.quiz form h3 span').text(currentQuestionIndex + 1);
-    $('div.quiz form p').text(qa.question);
+    $('div.quiz form p.question-list').text(qa.question);
     $('div.quiz form div.answers').html(answers.join(''));
 
     $('input[type=radio]').on('click', function () {
-        $('button.submit-answer').prop('disabled', false);
+    $('button.submit-answer').prop('disabled', false);
     });
     updateSummary();
 }
