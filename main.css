@@ -236,7 +236,6 @@ button.reset {
     }
     
     .quiz {
-        /* display: flex; */
         position: relative;;
         border-radius: 8px;
         margin: auto;
@@ -262,9 +261,7 @@ button.reset {
         left: 65px;
         text-align: center;
         border-radius: 5px; 
-        margin: auto;
-        
-         
+        margin: auto;    
     } 
 
     button.submit-answer {
@@ -297,8 +294,8 @@ button.reset {
         width: 10px;
         height: 10px;
         border-radius: 15px;
-        /* top: -2px;
-        left: -1px; */
+        top: 0.5px;
+        left: 0.5px;
         position: relative;
         background-color:orangered;
         content: '';
@@ -377,5 +374,9 @@ button.reset {
     }
     .mobile-version {
         display: block;
+    }
+    .desktop-version {
+        display: none;
+        border: orangered 2px solid;
     }
     }
