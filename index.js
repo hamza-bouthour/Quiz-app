@@ -52,7 +52,6 @@ const quiz = [
     }
 ]
 
-
 function updateSummary() {
     $('.count-correct-answers').text(countCorrectAnswers + '/10');
     $('.count-remaining').text(quiz.length - currentQuestionIndex - 1);
@@ -85,7 +84,6 @@ $(document).ready(function () {
         $('div.summary').removeClass('hidden');
         renderQa(quiz[currentQuestionIndex]);
     });
-
 
     $("form").on('submit', function (e) {
         e.preventDefault();
