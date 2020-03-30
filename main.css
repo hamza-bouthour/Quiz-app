@@ -184,6 +184,7 @@ button.reset {
 .mobile-version {
     display: none;
 }
+
 }
 
 @media only screen and (min-width: 100px) and (max-width: 1020px) {
@@ -192,7 +193,7 @@ button.reset {
     }
     
     body {
-        display: block;
+        
         /* background-image: url(https://i.postimg.cc/nrw7fdrk/body7.jpg);
         background-repeat: no-repeat;
         background-size: cover; */
@@ -298,8 +299,8 @@ button.reset {
         width: 10px;
         height: 10px;
         border-radius: 15px;
-        top: -2px;
-        left: -1px;
+        /* top: -2px;
+        left: -1px; */
         position: relative;
         background-color:orangered;
         content: '';
