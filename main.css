@@ -197,7 +197,7 @@ button.reset {
         /* background-image: url(https://i.postimg.cc/nrw7fdrk/body7.jpg);
         background-repeat: no-repeat;
         background-size: cover; */
-        background-color: #af0f0ff5;
+        background-color: #0c441af5;
         font-family:'Montserrat', sans-serif;
         color: white;     
     }
@@ -215,7 +215,7 @@ button.reset {
         text-align: center;
         padding: 20px;
         background-color:black;
-        opacity: 0.6;
+        opacity: 0.8;
         color:white;
         width: 400px;
     }
@@ -255,7 +255,7 @@ button.reset {
 
     .answer-window {
         position: absolute;
-        background-color: #af0f0ff5;
+        background-color: #0c441af5;
         font-size: 30px;
         height: 220px;
         width: 270px;
@@ -281,8 +281,6 @@ button.reset {
         width: 10px;
         height: 10px;
         border-radius: 15px;
-        top: -2px;
-        left: -1px;
         position: relative;
         background-color: #d1d3d1;
         content: '';
